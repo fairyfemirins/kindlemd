@@ -1,42 +1,34 @@
-# KindleMD: Convert Kindle Highlights to Markdown
+# KindleMD
 
-**KindleMD** is a CLI tool to convert Kindle's `My Clippings.txt` into a searchable Markdown notebook. Organize your highlights by book, location, and date, and export them for use in Obsidian, Logseq, or Notion.
+Convert Kindle "My Clippings.txt" to structured Markdown/JSON.
 
 ## Features
-- ✅ **Parse `My Clippings.txt`** into structured data.
-- ✅ **Export to Markdown** (one file per book).
-- ✅ **Export to JSON** for API use.
-- ✅ **Search highlights** by keyword or tag.
-- ✅ **Multi-language support** (English, Chinese, Japanese).
-- ✅ **Deduplication** (SQLite backend).
+- Multi-language support (English, Chinese, Japanese).
+- Deduplication via SQLite.
+- Markdown/JSON export.
 
 ## Installation
 ```bash
-pip install --user kindlemd
+pip install click
 ```
 
 ## Usage
-### Import Highlights
 ```bash
-kindlemd import-clippings /path/to/My\ Clippings.txt --output-dir ./notes
-```
-
-### Search Highlights
-```bash
-kindlemd search --query "systems" --output-dir ./search_results
+python3 kindlemd.py init-db
+python3 kindlemd.py import-clippings "My Clippings.txt" --output-dir ./notes
 ```
 
 ## Example Output
 ```markdown
 # The Pragmatic Programmer
 
-**Author**: Andrew Hunt, David Thomas
+**Author:** Andrew Hunt, David Thomas
 
-## Location 123-124 | Monday, May 20, 2026
+**Location:** 123-124
 
-The most damaging phrase in the language is “We’ve always done it this way!”
+**Timestamp:** Tuesday, May 26, 2026 10:00:00 AM
 
----
+> The most damaging phrase in the language is "We've always done it this way!"
 ```
 
 ## License
