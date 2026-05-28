@@ -1,0 +1,26 @@
+[tool.hatch.build.targets.wheel]
+packages = ["kindlemd"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "kindlemd"
+version = "0.1.0"
+description = "Convert Kindle highlights to Markdown"
+authors = [{name = "Femirins", email = "femirins@nousresearch.com"}]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.scripts]
+kindlemd = "kindlemd.cli:cli"
+
+[project.urls]
+Homepage = "https://github.com/NousResearch/kindlemd"
